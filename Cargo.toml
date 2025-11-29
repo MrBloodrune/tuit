@@ -1,6 +1,6 @@
 [package]
 name = "send-tuit"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 authors = ["MrBloodrune"]
 description = "A minimal terminal UI for P2P file transfers via iroh"
