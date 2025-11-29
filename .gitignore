@@ -1,0 +1,19 @@
+# Rust
+/target/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Local data
+*.log
+
+# Agent context (AI assistant working files)
+.agents/

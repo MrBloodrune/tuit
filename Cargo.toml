@@ -1,0 +1,76 @@
+[package]
+name = "send-tuit"
+version = "0.1.0"
+edition = "2021"
+authors = ["MrBloodrune"]
+description = "A minimal terminal UI for P2P file transfers via iroh"
+license = "MIT"
+repository = "https://github.com/MrBloodrune/send-tuit"
+homepage = "https://github.com/MrBloodrune/send-tuit"
+documentation = "https://github.com/MrBloodrune/send-tuit#readme"
+readme = "README.md"
+keywords = ["tui", "file-transfer", "p2p", "iroh", "cli"]
+categories = ["command-line-utilities", "network-programming"]
+exclude = [
+    ".github/",
+    "assets/",
+]
+
+[dependencies]
+# TUI
+ratatui = "0.29"
+crossterm = { version = "0.28", features = ["event-stream"] }
+
+# Async
+tokio = { version = "1", features = ["full", "sync"] }
+tokio-util = "0.7"
+futures = "0.3"
+
+# iroh integration
+iroh = "0.95"
+iroh-blobs = "0.97"
+
+# Directory traversal
+walkdir = "2.4"
+
+# Tree view and fuzzy search
+tui-tree-widget = "0.23"
+nucleo-matcher = "0.3"
+
+# Async streams
+n0-future = "0.1"
+
+# Error handling
+anyhow = "1.0"
+thiserror = "2.0"
+
+# Serialization
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+toml = "0.8"
+
+# Utilities
+chrono = { version = "0.4", features = ["serde"] }
+clap = { version = "4", features = ["derive"] }
+humansize = "2.1"
+directories = "5.0"
+uuid = { version = "1.0", features = ["v4", "serde"] }
+arboard = "3.4"
+fs2 = "0.4"
+
+# Logging
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+qrcode = "0.14.1"
+
+[dev-dependencies]
+tempfile = "3.0"
+
+[[bin]]
+name = "tuit"
+path = "src/main.rs"
+
+[profile.release]
+lto = true
+codegen-units = 1
+strip = true
